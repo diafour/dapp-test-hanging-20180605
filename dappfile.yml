@@ -3,8 +3,13 @@ from: ubuntu:18.04
 ansible:
   install:
     - name: test stderr
+      #raw: /app/test.sh 2>/dev/null
+      # too much output to stderr hangs forever
       raw: /app/test.sh
 git:
   - add: /
     to: /app
+    stageDependencies:
+      install:
+        - test.sh
 
