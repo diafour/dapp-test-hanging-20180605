@@ -1,0 +1,10 @@
+dimg: ~
+from: ubuntu:18.04
+ansible:
+  install:
+    - name: test stderr
+      raw: /app/test.sh
+git:
+  - add: /
+    to: /app
+
